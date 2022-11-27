@@ -4,8 +4,8 @@
   "description": "This is rest api testing with cypress",
   "main": "index.js",
   "scripts": {
-     "cypress:open": "./node_modules/.bin/cypress open",
-     "cypress:run": "./node_modules/.bin/cypress run --spec **/*.cy.js"
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "cypress:run": "./node_modules/.bin/cypress run --spec **/*.cy.js"
   },
   "repository": {
     "type": "git",
