@@ -3,6 +3,10 @@ const {
 } = require("cypress");
 
 module.exports = defineConfig({
+    reporter: 'cypress-multi-reporters',
+    reporterOptions: {
+        configFile: 'reporter-config.json'
+    },
     e2e: {
         baseUrl: 'https://gorest.co.in',
         setupNodeEvents(on, config) {
