@@ -7,7 +7,7 @@
     "cypress:open": "./node_modules/.bin/cypress open",
     "cypress:run": "./node_modules/.bin/cypress run --spec **/*.cy.js",
     "test:chrome": "cypress run --browser chrome",
-    "report:merge": "mochawesome-merge cypress/reports/json/*.json > index.json",
+    "report:merge": "mochawesome-merge cypress/reports/json/*.json > report.json",
     "report:generate": "marge report.json --reportDir public --assetsDir public/assets --reportPageTitle report.html"
   },
   "repository": {
