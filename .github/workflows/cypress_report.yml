@@ -37,15 +37,15 @@ jobs:
         env:
           CYPRESS_access_token: ${{secrets.CYPRESS_ACCESS_TOKEN}}
 
-      # Merge generated multiple JSON reports into a single report.json report file
+      # Merge generated multiple JSON reports into a single index.json report file
       - name: Merge test results into one
         run: npm run report:merge
 
-      # Generate an HTML report from a single report.json report file
+      # Generate an HTML report from a single index.json report file
       - name: Generate HTML report
         run: npm run report:generate
 
-      # Publish generated static page i.e., report.html
+      # Publish generated static page i.e., index.html
       - name: Publish report
         uses: peaceiris/actions-gh-pages@v3.9.0
         with:
