@@ -1,0 +1,53 @@
+# The name of the workflow as it will appear in the "Actions" tab of the GitHub repository
+name: Generate Cypress Report
+
+# Specifies the trigger for this workflow
+on:
+  push:
+    branches:
+      - 'add-test-report-ci'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "cypress-e2e-api"
+  cypress-e2e-api:
+    # Name of a workflow
+    name: Run on Chrome 107
+    # Configures the job to run on the latest version of an Ubuntu Linux runner
+    runs-on: ubuntu-latest
+    # Configures the job to run on what Docker container
+    container: cypress/browsers:node18.12.0-chrome107
+    steps:
+      # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # Clean install the necessary dependencies
+      - name: Install dependencies
+        run: |
+          npm ci
+          $(npm bin)/cypress cache path
+          $(npm bin)/cypress cache list
+          $(npm bin)/cypress verify
+
+      # Run tests in the Chrome browser
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: true
+        env:
+          CYPRESS_access_token: ${{secrets.CYPRESS_ACCESS_TOKEN}}
+
+      # Merge generated multiple JSON reports into a single report.json report file
+      - name: Merge test results into one
+        run: npm run report:merge
+
+      # Generate an HTML report from a single report.json report file
+      - name: Generate HTML report
+        run: npm run report:generate
+
+      # Publish generated static page i.e., report.html
+      - name: Publish report
+        uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
