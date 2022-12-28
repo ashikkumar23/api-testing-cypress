@@ -9,7 +9,7 @@ describe('Create a new user', () => {
                 method: 'POST',
                 url: '/public/v2/users',
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('access_token'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 },
                 body: {
                     "name": userName,
@@ -36,7 +36,7 @@ describe('Get user details', () => {
                 method: 'GET',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('access_token'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 }
             }).then((response) => {
                 expect(response).to.have.property('status').to.equal(200)
@@ -55,7 +55,7 @@ describe('Update user details', () => {
                 method: 'PUT',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('access_token'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 },
                 body: {
                     "name": "Updated Name",
@@ -80,7 +80,7 @@ describe('Delete user', () => {
                 method: 'DELETE',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('access_token'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 }
             }).then((response) => {
                 expect(response).to.have.property('status').to.equal(204)

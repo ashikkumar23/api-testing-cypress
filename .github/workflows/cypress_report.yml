@@ -34,10 +34,10 @@ jobs:
 
       # Run tests in the Chrome browser
       - name: Run Cypress tests
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
         run: npm run test:chrome
         continue-on-error: true
-        env:
-          CYPRESS_access_token: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
 
       # Merge generated multiple JSON reports into a single index.json report file
       - name: Merge test results into one
