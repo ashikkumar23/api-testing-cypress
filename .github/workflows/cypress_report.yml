@@ -19,7 +19,7 @@ jobs:
     # Configures the job to run on the latest version of an Ubuntu Linux runner
     runs-on: ubuntu-latest
     # Configures the job to run on what Docker container
-    container: cypress/browsers:node18.12.0-chrome107
+    container: cypress/browsers:node16.16.0-chrome107-ff107
     steps:
       # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - name: Checkout repo
