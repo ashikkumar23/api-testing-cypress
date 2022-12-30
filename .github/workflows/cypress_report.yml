@@ -1,5 +1,5 @@
 # The name of the workflow as it will appear in the "Actions" tab of the GitHub repository
-name: Generate Cypress Report
+name: Run API Tests and Generate Cypress Report
 
 # Specifies the trigger for this workflow
 on:
@@ -49,8 +49,8 @@ jobs:
         run: npm run report:generate
 
       # Publish generated static page i.e., index.html
-      - name: Publish report
-        uses: peaceiris/actions-gh-pages@v3.9.0
+      - name: Publish report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
