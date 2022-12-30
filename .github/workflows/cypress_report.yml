@@ -14,11 +14,10 @@ on:
 jobs:
   # This workflow contains a single job called "cypress-e2e-api"
   cypress-e2e-api:
-    # Name of a workflow
-    name: Run on Chrome 107
     # Configures the job to run on the latest version of an Ubuntu Linux runner
     runs-on: ubuntu-latest
-    # Configures the job to run on what Docker container
+    name: Run on Chrome 107
+    # Cypress Docker image with Chrome v107 and Firefox v107 pre-installed
     container: cypress/browsers:node16.16.0-chrome107-ff107
     steps:
       # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
@@ -35,10 +34,12 @@ jobs:
 
       # Run tests in the Chrome browser
       - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+        continue-on-error: true
         env:
           CYPRESS_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: npm run test:chrome
-        continue-on-error: true
 
       # Merge generated multiple JSON reports into a single index.json report file
       - name: Merge test results into one
