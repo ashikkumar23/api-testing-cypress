@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Run on Chrome 107
     # Cypress Docker image with Chrome v107 and Firefox v107 pre-installed
-    container: cypress/browsers:node16.16.0-chrome107-ff107
+    container:
+      image: cypress/browsers:node16.16.0-chrome107-ff107
+      options: --user 1001
     steps:
       # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - name: Checkout repo
