@@ -36,9 +36,7 @@ jobs:
 
       # Run tests in the Chrome browser
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
-        with:
-          browser: chrome
+        run: npm run test:chrome
         continue-on-error: true
         env:
           CYPRESS_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
