@@ -1,4 +1,4 @@
-name: Update devDependencies
+name: Update Dependencies
 
 on:
   workflow_dispatch:
@@ -8,14 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: set remote url
+      - name: Set remote url
         run: git remote set-url --push origin https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-      - name: package-update
+      - name: Update package.json
         uses: taichi/actions-package-update@master
         env:
           AUTHOR_EMAIL: ashikkumar23@gmail.com
           AUTHOR_NAME: Ashik Kumar
           EXECUTE: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOG_LEVEL: debug
         with:
-          args: -u --packageFile package.json  --dep dev
+          args: -u --packageFile package.json --loglevel verbose
