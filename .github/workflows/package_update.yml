@@ -20,6 +20,7 @@ jobs:
           AUTHOR_EMAIL: ashikkumar23@gmail.com
           AUTHOR_NAME: Ashik Kumar
           EXECUTE: "true"
+          CI_GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOG_LEVEL: debug
         with:
