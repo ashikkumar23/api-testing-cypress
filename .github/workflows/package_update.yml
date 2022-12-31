@@ -1,7 +1,8 @@
 name: Update Dependencies
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 3'
 
 jobs:
   package-update:
