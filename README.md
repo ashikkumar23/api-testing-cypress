@@ -1,5 +1,9 @@
 # Cypress REST API Test Framework
 
+[![Actions Status](https://github.com/ashikkumar23/api-testing-cypress/workflows/Update%20Dependencies/badge.svg)](https://github.com/ashikkumar23/api-testing-cypress/actions/workflows/package_update.yml)
+[![Actions Status](https://github.com/ashikkumar23/api-testing-cypress/workflows/Run%20API%20Tests%20and%20Generate%20Cypress%20Report/badge.svg)](https://github.com/ashikkumar23/api-testing-cypress/actions/workflows/cypress_report.yml)
+[![Actions Status](https://github.com/ashikkumar23/api-testing-cypress/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ashikkumar23/api-testing-cypress/actions/workflows/pages/pages-build-deployment)
+
 API Testing Framework using `Cypress` with `GitHub Actions` workflow for generating and publishing test report
 
 ## 🚀 Description:
