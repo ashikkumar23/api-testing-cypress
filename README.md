@@ -12,25 +12,30 @@ Automated CRUD (i.e., `POST`, `GET`, `PUT`, `DELETE`) operations using `Cypress`
 
 ## 🚀 Prerequisites:
 
-- `Node.js` and `npm`, https://www.npmjs.com/get-npm explains what are these and how to install them
-- `Cypress`
-- Go Rest APIs, https://gorest.co.in
+- [nodejs](https://nodejs.org/en/)
+- [npm](https://docs.npmjs.com/about-npm)
+- [Cypress](https://www.cypress.io/)
+- [Go Rest APIs](https://gorest.co.in)
 
 ## 🚀 Installation Steps:
 
-- Fork the repository `api-testing-cypress`
-- Clone the repository via HTTPS `git clone https://github.com/<your_github_username>/api-testing-cypress.git` or via SSH `git clone git@github.com:<your_github_username>/api-testing-cypress.git`
-- Move to the `api-testing-cypress` directory
+- [Fork](https://github.com/ashikkumar23/api-testing-cypress/fork) and Clone the repository `api-testing-cypress`
+- Move to the `api-testing-cypress` directory:
+
+```commandline
+cd api-testing-cypress
+```
+
 - Set up a new npm package:
 
 ```commandline
-$ npm init
+npm init
 ```
 
 - Install cypress:
 
 ```commandline
-$ npm install cypress
+npm install cypress
 ```
 
 - Add the following lines to the `package.json` file, `"scripts"` section:
@@ -47,16 +52,16 @@ $ npm install cypress
 - To run the tests on your terminal:
 
 ```commandline
-$ npm run cypress:run
+npm run cypress:run
 ```
 
-- To run the tests against the Cypress Test Runner:
+- To run the tests against the [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/cypress-app#The-Test-Runner):
 
 ```commandline
-$ npm run cypress:open
+npm run cypress:open
 ```
 
-- On Cypress Test Runner:
+- On [Cypress Test Runner](https://docs.cypress.io/guides/core-concepts/cypress-app#The-Launchpad):
   - Select `E2E Testing`
   - Choose a browser: `Chrome` or `Electron`
   - Click on `Start E2E Testing in {browser}`
@@ -64,18 +69,18 @@ $ npm run cypress:open
 
 ## 🚀 Reporting:
 
-- Install `mochawesome` dependencies:
+- Install [mochawesome](https://www.npmjs.com/package/mochawesome) dependencies:
 
 ```commandline
-$ npm install --save-dev mocha cypress-multi-reporters mochawesome
+npm install --save-dev mocha cypress-multi-reporters mochawesome
 ```
 
 ```commandline
-$ npm install --save-dev mochawesome-merge
+npm install --save-dev mochawesome-merge
 ```
 
 ```commandline
-$ npm install --save-dev mochawesome-report-generator
+npm install --save-dev mochawesome-report-generator
 ```
 
 - Add the following lines to the `package.json` file, `"scripts"` section:
