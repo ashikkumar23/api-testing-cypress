@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ashikkumar23/api-testing-cypress#readme",
   "dependencies": {
-    "cypress": "^12.14.0"
+    "cypress": "^12.15.0"
   },
   "devDependencies": {
     "cypress-multi-reporters": "^1.6.3",
