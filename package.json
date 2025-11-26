@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/ashikkumar23/api-testing-cypress#readme",
   "dependencies": {
-    "cypress": "^15.6.0"
+    "cypress": "^15.7.0"
   },
   "devDependencies": {
     "cypress-multi-reporters": "^2.0.5",
     "mocha": "^11.7.5",
     "mochawesome": "^7.1.4",
-    "mochawesome-merge": "^5.0.0",
+    "mochawesome-merge": "^5.1.0",
     "mochawesome-report-generator": "^6.3.2"
   }
 }
