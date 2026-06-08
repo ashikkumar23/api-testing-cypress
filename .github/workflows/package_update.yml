@@ -21,5 +21,6 @@ jobs:
           EXECUTE: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LOG_LEVEL: debug
+          SET_NODE_VERSION: "24"
         with:
           args: -u --packageFile package.json --loglevel verbose
