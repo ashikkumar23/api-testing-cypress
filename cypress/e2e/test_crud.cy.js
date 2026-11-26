@@ -1,6 +1,13 @@
 const userName = Math.random().toString(36).substring(2, 15)
 const emailId = userName + "@domain.com"
 let userId
+let accessToken
+
+before(() => {
+    cy.env(['ACCESS_TOKEN']).then(({ ACCESS_TOKEN }) => {
+        accessToken = ACCESS_TOKEN
+    })
+})
 
 describe('Create a new user', () => {
     context('POST /public/v2/users', () => {
@@ -9,7 +16,7 @@ describe('Create a new user', () => {
                 method: 'POST',
                 url: '/public/v2/users',
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + accessToken, // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 },
                 body: {
                     "name": userName,
@@ -36,7 +43,7 @@ describe('Get user details', () => {
                 method: 'GET',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + accessToken, // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 }
             }).then((response) => {
                 expect(response).to.have.property('status').to.equal(200)
@@ -55,7 +62,7 @@ describe('Update user details', () => {
                 method: 'PUT',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + accessToken, // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 },
                 body: {
                     "name": "Updated Name",
@@ -80,7 +87,7 @@ describe('Delete user', () => {
                 method: 'DELETE',
                 url: `/public/v2/users/${userId}`,
                 headers: {
-                    'authorization': 'Bearer ' + Cypress.env('ACCESS_TOKEN'), // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
+                    'authorization': 'Bearer ' + accessToken, // Generate access token from https://gorest.co.in/consumer/login and add the same to cypress.env.json
                 }
             }).then((response) => {
                 expect(response).to.have.property('status').to.equal(204)
